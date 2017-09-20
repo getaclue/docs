@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-941797-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-941797-10');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Locker Documentation</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Documentation for Learning Locker, the open source learning record store.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tomorrow-night.css">
+    <link rel="stylesheet" href="../css/docs.css">
+
+    <script type="text/javascript">
+        function prettyCode() {
+            var tables = document.getElementsByTagName('table');
+            for (index = 0; index < tables.length; ++index) {
+                tables[index].className = "table table-default table-bordered";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="prettyCode();">
+
+    <div class="docs-masthead">
+    <div class="container">
+        <img src="../images/logo-small.png" class="logo">
+        <nav class="docs-nav pull-right">
+            <a class="docs-nav-item" href="http://learninglocker.net">Main Website</a>
+            <a class="docs-nav-item" href="http://v1docs.learninglocker.net">V1 Docs</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/learninglocker">Github</a>
+            <a class="docs-nav-item" href="https://github.com/LearningLocker/docs">Edit</a>
+        </nav>
+    </div>
+</div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 docs-sidebar">
+                <div class="sidebar-title">
+                    <a href="../welcome">Overview</a>
+                </div>
+                <ul class="nav">
+                    <li><a href="../overview-architecture">Architecture</a></li>
+                    <li><a href="../overview-xapi">xAPI</a></li>
+                </ul>
+                <div class="sidebar-title">
+                    <a href="#">Guides</a>
+                </div>
+                <ul class="nav">
+                    <li><a href="../guides-installing">Installing v2</a></li>
+                    <li><a href="../guides-configuring">Configuration</a></li>
+                    <li><a href="../guides-migrating">Migrating from v1 to v2</a></li>
+                    <li><a href="../guides-indexing">Indexing</a></li>
+                    <li><a href="../guides-monitoring">Monitoring</a></li>
+                    <li><a href="../guides-structuring">Structuring your LRS</a></li>
+                    <li><a href="../guides-inserting">Inserting statements</a></li>
+                    <li><a href="../guides-retrieving">Retrieving statements</a></li>
+                    <li><a href="../guides-integrating">Integrations</a></li>
+                </ul>
+                <div class="sidebar-title">
+                    <a href="#">HTTP Interfaces (APIs)</a>
+                </div>
+                <ul class="nav">
+                    <li><a href="../http-connection">Connection</a></li>
+                    <li><a href="../http-models">Models</a></li>
+                    <li><a href="../http-aggregation">Aggregation</a></li>
+                    <li><a href="../http-clients">Clients</a></li>                    
+                    <li><a href="../http-dashboards">Dashboards</a></li>
+                    <li><a href="../http-downloads">Downloads</a></li>
+                    <li><a href="../http-exports">Exports</a></li>
+                    <li><a href="../http-journeys">Journeys</a></li>
+                    <li><a href="../http-journey-progress">Journey Progress</a></li>
+                    <li><a href="../http-organisations">Organisations</a></li>
+                    <li><a href="../http-personas">Personas</a></li>
+                    <li><a href="../http-queries">Queries</a></li>
+                    <li><a href="../http-roles">Roles</a></li>
+                    <li><a href="../http-statements">Statements</a></li>
+                    <li><a href="../http-stores">Stores</a></li>
+                    <li><a href="../http-users">Users</a></li>
+                    <li><a href="../http-visualisations">Visualisations</a></li>
+                    <li><a href="../http-xapi">xAPI</a></li>
+                </ul>
+                <div class="sidebar-title">
+                    <a href="../faqs">FAQs</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-9 docs-main">
+                <h1 id="installing-v2-guide">Installing V2 Guide</h1>
+<p>To install Learning Locker version 2, you can run one of the commands below <strong>as the root user</strong> on <code class="highlighter-rouge">CentOS</code>, <code class="highlighter-rouge">Fedora</code>, <code class="highlighter-rouge">Ubuntu</code>, and <code class="highlighter-rouge">Debian</code>. For more information, you can view the <a href="https://github.com/LearningLocker/deploy">deployment repository’s documentation</a>.</p>
+
+<p>Please run the required update script for your distro to ensure you have the latest version of all packages.</p>
+
+<p>.e.g</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>yum update
+</code></pre>
+</div>
+<p>or</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>apt-get update
+</code></pre>
+</div>
+
+<p><strong>You must run this script as root user. Typically this can be done by running <code class="highlighter-rouge">sudo su -</code></strong></p>
+
+<p><strong>Install with cURL</strong></p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>curl -o- -L http://lrnloc.kr/installv2 &gt; deployll.sh <span class="o">&amp;&amp;</span> bash deployll.sh
+</code></pre>
+</div>
+<p><strong>Install with Wget</strong>:</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>wget -qO deployll.sh http://lrnloc.kr/installv2 <span class="o">&amp;&amp;</span> bash deployll.sh
+</code></pre>
+</div>
+
+<p>To upgrade, simply re-run the command above.</p>
+
+<h2 id="production-installations">Production Installations</h2>
+<p>For production installations, we recommend the following setup<strong>:</strong></p>
+
+<ul>
+  <li>1 Load balancer (e.g. <a href="https://aws.amazon.com/elasticloadbalancing/">AWS Elastic Load Balancing</a>);</li>
+  <li>2 Learning Locker servers (e.g. <a href="https://aws.amazon.com/ec2/">AWS EC2</a>);</li>
+  <li>3 Mongo servers in a replica set (e.g. <a href="https://www.mongodb.com/cloud/atlas">Atlas</a>);</li>
+  <li>1 Redis server (e.g. <a href="https://aws.amazon.com/elasticache/">AWS ElastiCache</a>).</li>
+</ul>
+
+<p>This setup ensures good performance and a reasonable degree of redundancy in case of failures in some parts. We’d also recommend that you back up your Mongo database quite regularly depending on your own data requirements. If this sounds too costly or challenging, you may wish to consider using <a href="https://www.ht2labs.com/learning-locker/">our Software as a Service (SaaS) enterprise solution</a>. If you require more advice for your setup, please get in touch via <a href="mailto:hello@ht2labs.com">hello@ht2labs.com</a>.</p>
+
+<h2 id="application-structure">Application Structure</h2>
+
+<p>There are two main repositories that are installed as part of a fresh Learning Locker installation, the <a href="https://github.com/LearningLocker/learninglocker">Learning Locker application</a> and <a href="https://github.com/LearningLocker/xapi-service">xAPI service</a>. An in depth look at what both these packages do can be read in the <a href="../overview-architecture">Architecture Overview</a>.</p>
+
+<p>When installing your LL instance using the deploy script, these packages will be (by default) installed to <code class="highlighter-rouge">/usr/local/learninglocker/current</code> (as a symlink to a directory inside <code class="highlighter-rouge">/usr/local/learninglocker/release/...</code>).</p>
+
+<p>Inside <code class="highlighter-rouge">current/</code> lives the Learning Locker application which controls the User Interface, API and worker.</p>
+
+<p>We also install the xAPI Service here, inside the <code class="highlighter-rouge">xapi/</code> directory.</p>
+
+<h2 id="configuration--environment-variables">Configuration &amp; Environment Variables</h2>
+
+<p>Each of these applications has their own <code class="highlighter-rouge">.env</code>. These hold all the configurations that the applications require in order to run, from database settings to logging configuration.</p>
+
+<p>By default the install script will copy the (.env.example) from <a href="https://github.com/LearningLocker/learninglocker/blob/master/.env.example">both</a> repos <a href="https://github.com/LearningLocker/xapi-service/blob/master/.env.example">respectively</a>.</p>
+
+<p>It is likely you will wish to configure your application to connect to external databases, and whilst setup and configuration of these in beyond the scopes of this documentation, you will need to ensure that both <code class="highlighter-rouge">.env</code> files contain the same configuration values where appropriate.</p>
+
+<p>A full description of all configuration values in both repositories is available in the <a href="../guides-configuring">Configuration Guide</a></p>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="docs-footer">
+    <p>Learning Locker and the Squirrel logo are trademark of HT2 Inc. <script>document.write(new Date().getFullYear())</script> | Learning Locker is licensed under GPL 3.0.</p>
+    <p>
+        <a href="#">Back to top</a>
+    </p>
+</footer>
+
+
+</body>
+
+</html>
